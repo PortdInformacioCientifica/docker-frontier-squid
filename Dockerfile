@@ -7,15 +7,13 @@ RUN groupadd -o -g 10941 squid
 RUN useradd -o -u 10941 -g 10941 -s /sbin/nologin -d /var/lib/squid squid
 
 
-RUN yum -y install http://repo.opensciencegrid.org/osg/3.4/osg-3.4-el7-release-latest.rpm \
-                   epel-release \
-                   yum-plugin-priorities
+RUN yum -y install epel-release \
+                   yum-plugin-priorities 
 
 RUN yum clean all && \
     yum update -y 
 
-RUN yum install -y frontier-squid && \
-    yum install -y supervisor
+RUN yum install -y cronie http://frontier.cern.ch/dist/rpms/RPMS/x86_64/frontier-squid-4.9-4.1.x86_64.rpm supervisor
 
 RUN yum clean all --enablerepo=* && rm -rf /var/cache/yum/
 
