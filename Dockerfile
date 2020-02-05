@@ -13,7 +13,7 @@ RUN yum -y install epel-release \
 RUN yum clean all && \
     yum update -y 
 
-RUN yum install -y cronie http://frontier.cern.ch/dist/rpms/RPMS/x86_64/frontier-squid-4.9-4.1.x86_64.rpm supervisor
+RUN yum install -y cronie http://frontier.cern.ch/dist/rpms/RPMS/x86_64/frontier-squid-4.10-1.1.x86_64.rpm supervisor
 
 RUN yum clean all --enablerepo=* && rm -rf /var/cache/yum/
 
